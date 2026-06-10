@@ -217,7 +217,7 @@ class SaaSHandler(BaseHTTPRequestHandler):
         path = parsed.path.rstrip('/')
         
         # Health check
-        if path == '/' or path == '/health':
+        if path in ('', '/') or path == '/health':
             self._send_json({
                 "service": "CompanyMaster SaaS",
                 "version": "0.1.0",
