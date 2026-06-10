@@ -1,0 +1,2 @@
+# Python 3.12 — pure stdlib, no external dependencies
+# All modules used: http.server, json, sqlite3, hashlib, secrets, pathlib

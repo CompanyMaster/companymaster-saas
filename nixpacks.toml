@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python312"]
+
+[phases.install]
+cmds = ["echo 'No dependencies to install — pure stdlib Python project'"]
+
+[start]
+cmd = "python server.py"
