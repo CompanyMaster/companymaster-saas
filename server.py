@@ -24,6 +24,9 @@ from datetime import datetime, timezone
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
+# ─── PRIVACY POLICY ────────────────────────────────────────
+PRIVACY_POLICY_PATH = Path(__file__).parent / "privacy.html"
+
 # ─── CONFIG ───────────────────────────────────────────────
 BASE_DIR = Path("/opt/data/projetos/saas")
 DATA_DIR = BASE_DIR / "data"
@@ -225,7 +228,16 @@ class SaaSHandler(BaseHTTPRequestHandler):
                 "endpoints": ["/shorten", "/qr", "/tools/wordcount", "/tools/md2html", "/tools/slugify"]
             })
             return
-        
+
+        # Privacy Policy
+        if path == '/privacy':
+            html = PRIVACY_POLICY_PATH.read_text(encoding='utf-8')
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.end_headers()
+            self.wfile.write(html.encode('utf-8'))
+            return
+
         # URL Shortener redirect
         if path.startswith('/s/'):
             code = path[3:]
