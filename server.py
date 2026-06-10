@@ -230,7 +230,7 @@ class SaaSHandler(BaseHTTPRequestHandler):
             return
 
         # Privacy Policy
-        if path == '/privacy':
+        if path in ('/privacy', '/privacy/companymaster'):
             html = PRIVACY_POLICY_PATH.read_text(encoding='utf-8')
             self.send_response(200)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
