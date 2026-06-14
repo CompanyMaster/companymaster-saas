@@ -163,6 +163,22 @@ class TextTools:
         return {"words": len(text.split()), "chars": len(text), "lines": text.count('\n') + 1}
     
     @staticmethod
+    def character_count(text):
+        """Contagem detalhada: caracteres (com/sem espaços), palavras, linhas, parágrafos."""
+        chars_total = len(text)
+        chars_no_spaces = len(text.replace(' ', ''))
+        words = len(text.split()) if text.strip() else 0
+        lines = text.count('\n') + 1 if text else 1
+        paragraphs = len([p for p in text.split('\n\n') if p.strip()]) if text.strip() else 0
+        return {
+            "characters_total": chars_total,
+            "characters_no_spaces": chars_no_spaces,
+            "words": words,
+            "lines": lines,
+            "paragraphs": paragraphs
+        }
+    
+    @staticmethod
     def markdown_to_html(text):
         # Conversor básico (MVP)
         import re
@@ -225,7 +241,7 @@ class SaaSHandler(BaseHTTPRequestHandler):
                 "service": "CompanyMaster SaaS",
                 "version": "0.1.0",
                 "status": "running",
-                "endpoints": ["/shorten", "/qr", "/tools/wordcount", "/tools/md2html", "/tools/slugify"]
+                "endpoints": ["/shorten", "/qr", "/tools/wordcount", "/tools/md2html", "/tools/slugify", "/tools/charactercount"]
             })
             return
 
@@ -292,6 +308,14 @@ class SaaSHandler(BaseHTTPRequestHandler):
             params = parse_qs(parsed.query)
             text = params.get('text', [''])[0]
             result = TextTools.slugify(text)
+            self._send_json(result)
+            return
+        
+        # Character count
+        if path == '/tools/charactercount':
+            params = parse_qs(parsed.query)
+            text = params.get('text', [''])[0]
+            result = TextTools.character_count(text)
             self._send_json(result)
             return
         
@@ -366,6 +390,7 @@ def run_server(port=8080):
     print(f"   GET  /qr?text=...       — Generate QR code")
     print(f"   GET  /tools/wordcount   — Count words")
     print(f"   GET  /tools/md2html     — Markdown to HTML")
+    print(f"   GET  /tools/charactercount — Character count (chars, words, lines, paragraphs)")
     print(f"   GET  /tools/slugify     — URL slug generator")
     print(f"\n💰 Monetization-ready: API key system, usage tracking, subscription plans")
     
