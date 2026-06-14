@@ -27,6 +27,51 @@ from urllib.parse import urlparse, parse_qs
 # ─── PRIVACY POLICY ────────────────────────────────────────
 PRIVACY_POLICY_PATH = Path(__file__).parent / "privacy.html"
 
+# ─── GUMROAD PRODUCT CATALOG ──────────────────────────────
+PRODUCTS = [
+    # ── Bundles ──
+    {"slug": "bxssj", "name": "Life OS Mega Bundle -- 20 Digital Planners Complete System", "desc": "The ultimate life management system with 20 printable planners covering every area of your life: productivity, finance, health, habits, projects, and more. Everything you need to get organized in one bundle.", "price": 29.99, "category": "Bundle"},
+    {"slug": "owwfcw", "name": "Productivity Pro -- 7 Planners Power Bundle", "desc": "Seven powerful planners to supercharge your productivity: weekly, daily, habit tracker, project manager, goal planner, time log, and priority matrix. Save 60% vs buying separately.", "price": 19.99, "category": "Bundle"},
+    {"slug": "zgznvk", "name": "Starter Pack -- 5 Essential Digital Planners", "desc": "Get started with organization: Weekly Planner, Budget Tracker, Habit Tracker, Meal Planner, and Daily Journal — 5 essential planners at an unbeatable price.", "price": 14.99, "category": "Bundle"},
+
+    # ── Planners ──
+    {"slug": "uzbmvd", "name": "Ultimate Weekly Planner Printable — Hourly Schedule, Priority Tasks and Habit Tracker for Productivity (Undated A4/A5)", "desc": "Plan every week with purpose. Features hourly time blocking, priority task lists, habit tracker, weekly goals section, and reflection space. Undated — reuse year after year.", "price": 4.99, "category": "Planner"},
+    {"slug": "cnnal", "name": "Student Budget Planner Printable — Monthly Income, Expense Tracker and Savings Goal for College Students", "desc": "Take control of your student finances. Track tuition, rent, groceries, and entertainment. Set savings goals and monitor your spending patterns month by month.", "price": 3.99, "category": "Planner"},
+    {"slug": "uvinu", "name": "Teacher Gradebook Printable — Attendance, Grade Tracker and Assignment Log (Undated, Reusable)", "desc": "Stay on top of your classroom with this teacher-friendly gradebook. Track attendance, record grades, log assignments, and monitor student progress across multiple classes.", "price": 5.99, "category": "Planner"},
+    {"slug": "yynktc", "name": "52-Week Savings Challenge Printable — $1,378 Money Tracker, Weekly Deposit Log and Financial Goal Planner (Undated PDF)", "desc": "Save $1,378 in one year with this proven weekly savings challenge. Track each deposit, watch your progress grow, and build a lasting savings habit.", "price": 3.99, "category": "Planner"},
+    {"slug": "pbdqqi", "name": "Fitness Meal Prep Planner Printable — Weekly Menu, Macro Tracker and Grocery List for Gym and Weight Loss", "desc": "Transform your nutrition with weekly meal prep planning. Includes macro and calorie tracking, grocery lists, meal scheduling, and progress photos log.", "price": 4.99, "category": "Planner"},
+    {"slug": "lkfju", "name": "Freelancer Finance Tracker Printable — Income, Expense and Tax Estimator Log for Independent Contractors (Undated, Reusable)", "desc": "Keep your freelance business finances organized. Track income by client, log deductible expenses, estimate quarterly taxes, and simplify tax season.", "price": 4.99, "category": "Planner"},
+
+    # ── Health & Wellness ──
+    {"slug": "hfwqoa", "name": "Health & Wellness Planner Printable — Monthly Fitness, Meal Prep and Self-Care Routine for Mind and Body", "desc": "A holistic wellness planner combining fitness tracking, meal planning, water intake logging, sleep tracking, and daily self-care routines. Undated and reusable.", "price": 4.99, "category": "Health"},
+    {"slug": "mwdbkj", "name": "Symptom & Medication Tracker Printable — Chronic Illness Log, Pain Diary and Doctor Visit Planner", "desc": "Track daily symptoms, medications, pain levels, triggers, and treatments. Includes appointment prep pages and medication schedule. Essential for chronic illness management.", "price": 5.99, "category": "Health"},
+    {"slug": "vjnxcr", "name": "Sleep & Mood Tracker Printable — 90-Day Log for Insomnia, Stress and Emotional Wellbeing", "desc": "Understand your sleep patterns and emotional wellbeing. Log bedtime, wake time, sleep quality, mood ratings, and daily stressors. Spot trends and improve your health.", "price": 3.99, "category": "Health"},
+    {"slug": "tbfyqw", "name": "Water & Hydration Tracker Printable — 30-Day Daily Log with Goal Setting and Reminder Stickers", "desc": "Stay hydrated and feel better! Track daily water intake with easy-to-use log, set hydration goals, and use progress stickers to stay motivated.", "price": 2.99, "category": "Health"},
+    {"slug": "rxcnak", "name": "Prenatal Health Journal Printable — Pregnancy Tracker, Appointment Log, Symptom Diary and Baby Prep Checklist", "desc": "Document your pregnancy journey week by week. Track symptoms, doctor appointments, fetal development notes, birth plan ideas, and nesting checklist.", "price": 5.99, "category": "Health"},
+
+    # ── Baby & Parenting ──
+    {"slug": "mlykrs", "name": "Baby Feeding & Diaper Log Printable — Newborn Tracker for Breastfeeding, Bottle, Sleep and Nappy Changes", "desc": "Essential tracker for new parents. Log breastfeeding sessions, bottle amounts, diaper changes, sleep times, and baby's mood. Perfect for pediatrician visits.", "price": 3.99, "category": "Baby"},
+    {"slug": "wpqxzb", "name": "Baby Milestones & Memory Book Printable — First Year Journal with Monthly Updates, Photos and Keepsakes", "desc": "Capture every precious moment of baby's first year. Monthly milestone pages, photo pockets, firsts log, growth tracker, and letters to your baby.", "price": 6.99, "category": "Baby"},
+    {"slug": "dsfnhy", "name": "Toddler Routine Chart Printable — Daily Schedule, Chore Chart and Reward System for Kids 2-5", "desc": "Establish healthy routines with your toddler. Visual daily schedule, morning/evening routine charts, chore trackers, and sticker reward system.", "price": 3.99, "category": "Baby"},
+    {"slug": "kgbltm", "name": "Pregnancy Appointment & Birth Plan Planner Printable — Weekly Checklists, Lab Tracker and Hospital Bag Prep", "desc": "Stay organized throughout your pregnancy. Weekly checklists, appointment tracker, lab test log, birth plan worksheets, hospital bag checklist, and postpartum planning.", "price": 4.99, "category": "Baby"},
+
+    # ── Productivity ──
+    {"slug": "jptszh", "name": "Daily Time Blocking Planner Printable — Hourly Schedule from 6AM to 10PM (Undated, Letter/A4)", "desc": "Master your day with time blocking. Hourly schedule grid, top 3 priorities section, notes area, and evening reflection. Undated — start any day.", "price": 3.99, "category": "Productivity"},
+    {"slug": "ngqvyu", "name": "Project Planner Printable — Task Tracker, Timeline Gantt and Milestone Log for Work and Side Projects", "desc": "Plan and execute projects with confidence. Task breakdown, Gantt timeline, milestone tracking, budget log, and weekly status pages. Perfect for freelancers and teams.", "price": 4.99, "category": "Productivity"},
+    {"slug": "rcthmv", "name": "Goal Setting & Action Planner Printable — 90-Day Sprint, Quarterly OKRs and Weekly Progress Tracker", "desc": "Turn your goals into reality. Define quarterly OKRs, break them into 90-day sprints, track weekly progress, and review your achievements.", "price": 4.99, "category": "Productivity"},
+    {"slug": "zqxkbf", "name": "Deep Work & Focus Tracker Printable — Pomodoro Sessions, Distraction Log and Daily Flow State Journal", "desc": "Optimize your focus and get more done. Track Pomodoro sessions, log distractions, rate your flow state, and analyze your most productive times of day.", "price": 3.99, "category": "Productivity"},
+
+    # ── Finance & Organization ──
+    {"slug": "vmpnry", "name": "Annual Budget Planner Printable — 12-Month Income & Expense Spreadsheet, Bill Tracker and Debt Payoff Log", "desc": "Your complete financial planning toolkit. 12-month budget spreadsheets, bill payment calendar, debt snowball tracker, savings goals, and net worth log.", "price": 5.99, "category": "Finance"},
+    {"slug": "hkxfqw", "name": "Digital File Organizer Printable — Password Keeper, Software Licenses, Subscription Manager and Login Tracker", "desc": "Never lose track of your digital life. Log passwords (offline), track subscriptions, manage software licenses, and store important account details securely on paper.", "price": 3.99, "category": "Organization"},
+    {"slug": "gpackf", "name": "Home Inventory & Cleaning Schedule Printable — Room-by-Room Organizer, Deep Cleaning Checklist and Maintenance Log", "desc": "Keep your home organized. Room-by-room inventory, deep cleaning schedules, maintenance reminders, seasonal task lists, and home improvement project tracker.", "price": 4.99, "category": "Organization"},
+    {"slug": "xnvfkd", "name": "Bill Payment & Subscription Tracker Printable — Monthly Due Dates, Auto-Pay Log and Annual Renewal Calendar", "desc": "Never miss a payment again. Track all bills and subscriptions in one place, log due dates, check off payments, and plan for annual renewals.", "price": 2.99, "category": "Finance"},
+
+    # ── Trackers ──
+    {"slug": "bfprwg", "name": "Ultimate Habit Tracker Printable — 12-Month Daily Habit Log with Monthly Review and Habit Stacking Planner", "desc": "Build better habits with this comprehensive tracker. Track up to 12 habits daily for a full year, review monthly progress, and plan your habit stacking strategy.", "price": 4.99, "category": "Tracker"},
+    {"slug": "emywbs", "name": "Travel Planner & Itinerary Organizer Printable — Trip Budget, Packing List, Journal and Souvenir Log", "desc": "Plan unforgettable trips. Itinerary pages, travel budget tracker, packing checklists, daily travel journal, photo log, and souvenir tracker.", "price": 4.99, "category": "Tracker"},
+]
+
 # ─── CONFIG ───────────────────────────────────────────────
 BASE_DIR = Path("/opt/data/projetos/saas")
 DATA_DIR = BASE_DIR / "data"
@@ -231,6 +276,91 @@ class SaaSHandler(BaseHTTPRequestHandler):
         )
         return cur.fetchone()
     
+    def _serve_html(self, html, status=200):
+        self.send_response(status)
+        self.send_header('Content-Type', 'text/html; charset=utf-8')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        self.wfile.write(html.encode('utf-8'))
+    
+    def serve_products(self):
+        """Render product catalog landing page."""
+        cards_html = ''
+        for i, p in enumerate(PRODUCTS):
+            gumroad_url = f"https://companymaster.gumroad.com/l/{p['slug']}"
+            price_str = f"${p['price']:.2f}" if p['price'] > 0 else "Free"
+            cards_html += f'''
+            <div class="product-card">
+                <div class="product-category">{p['category']}</div>
+                <h3 class="product-name">{p['name']}</h3>
+                <p class="product-desc">{p['desc']}</p>
+                <div class="product-footer">
+                    <span class="product-price">{price_str}</span>
+                    <a class="product-btn" href="{gumroad_url}" target="_blank" rel="noopener">View on Gumroad →</a>
+                </div>
+            </div>'''
+        
+        html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CompanyMaster — Digital Products</title>
+<meta name="description" content="Printable planners & digital tools to organize your life. Browse our catalog of 28 premium digital planners, trackers, and organizers.">
+<style>
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.6; }}
+.container {{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }}
+header {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 60px 0 40px; text-align: center; }}
+header h1 {{ font-size: 2.5rem; margin-bottom: 10px; }}
+header p {{ font-size: 1.1rem; opacity: 0.85; max-width: 600px; margin: 0 auto; }}
+header .subtitle {{ margin-top: 8px; font-size: 0.95rem; opacity: 0.7; }}
+.products-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; padding: 40px 0; }}
+.product-card {{ background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; border: 1px solid #e8e8ec; }}
+.product-card:hover {{ transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }}
+.product-category {{ display: inline-block; background: #eef0f7; color: #0f3460; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; align-self: flex-start; }}
+.product-name {{ font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; line-height: 1.35; color: #1a1a2e; }}
+.product-desc {{ font-size: 0.9rem; color: #555; margin-bottom: 16px; flex-grow: 1; }}
+.product-footer {{ display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 16px; }}
+.product-price {{ font-size: 1.25rem; font-weight: 700; color: #0f3460; }}
+.product-btn {{ background: #0f3460; color: white; padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }}
+.product-btn:hover {{ background: #1a4a7a; }}
+.count-badge {{ text-align: center; margin: 20px 0 0; font-size: 0.9rem; color: #777; }}
+footer {{ background: #1a1a2e; color: #999; padding: 30px 0; text-align: center; margin-top: 40px; }}
+footer a {{ color: #8ab4f8; text-decoration: none; }}
+footer a:hover {{ text-decoration: underline; }}
+@media (max-width: 720px) {{
+    header h1 {{ font-size: 1.8rem; }}
+    .products-grid {{ grid-template-columns: 1fr; }}
+    .product-footer {{ flex-direction: column; gap: 12px; align-items: stretch; text-align: center; }}
+    .product-btn {{ text-align: center; }}
+}}
+</style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>🏢 CompanyMaster — Digital Products</h1>
+        <p>Printable planners &amp; digital tools to organize your life</p>
+        <p class="subtitle">Browse our catalog of {len(PRODUCTS)} premium products on Gumroad</p>
+    </div>
+</header>
+<main class="container">
+    <div class="count-badge">Showing all {len(PRODUCTS)} products</div>
+    <div class="products-grid">
+        {cards_html}
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <p>© 2026 CompanyMaster — <a href="https://companymaster.gumroad.com" target="_blank" rel="noopener">Visit our Gumroad Store</a> — <a href="/">API Home</a></p>
+        <p style="margin-top:8px;font-size:0.8rem;">All products are digital downloads delivered via Gumroad</p>
+    </div>
+</footer>
+</body>
+</html>'''
+        self._serve_html(html)
+    
     def do_GET(self):
         parsed = urlparse(self.path)
         path = parsed.path.rstrip('/')
@@ -241,7 +371,7 @@ class SaaSHandler(BaseHTTPRequestHandler):
                 "service": "CompanyMaster SaaS",
                 "version": "0.1.0",
                 "status": "running",
-                "endpoints": ["/shorten", "/qr", "/tools/wordcount", "/tools/md2html", "/tools/slugify", "/tools/charactercount"]
+                "endpoints": ["/shorten", "/qr", "/tools/wordcount", "/tools/md2html", "/tools/slugify", "/tools/charactercount", "/products", "/catalog"]
             })
             return
 
@@ -253,6 +383,10 @@ class SaaSHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(html.encode('utf-8'))
             return
+
+        # Product Catalog (Gumroad showcase)
+        if path in ('/products', '/catalog'):
+            return self.serve_products()
 
         # URL Shortener redirect
         if path.startswith('/s/'):
@@ -392,6 +526,7 @@ def run_server(port=8080):
     print(f"   GET  /tools/md2html     — Markdown to HTML")
     print(f"   GET  /tools/charactercount — Character count (chars, words, lines, paragraphs)")
     print(f"   GET  /tools/slugify     — URL slug generator")
+    print(f"   GET  /products          — Product catalog ({len(PRODUCTS)} products)")
     print(f"\n💰 Monetization-ready: API key system, usage tracking, subscription plans")
     
     try:
