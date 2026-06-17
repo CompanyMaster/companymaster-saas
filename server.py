@@ -283,6 +283,44 @@ class SaaSHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(html.encode('utf-8'))
     
+    def _make_schema_org_json(self):
+        """JSON-LD Organization schema for SEO."""
+        return json.dumps({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "CompanyMaster",
+            "url": "https://companymaster.gumroad.com",
+            "sameAs": [
+                "https://bsky.app/profile/companymaster",
+                "https://dev.to/companymaster"
+            ]
+        }, ensure_ascii=False)
+    
+    def _make_schema_products_json(self):
+        """JSON-LD ItemList of Product schemas for SEO."""
+        items = []
+        for i, p in enumerate(PRODUCTS, 1):
+            items.append({
+                "@type": "ListItem",
+                "position": i,
+                "item": {
+                    "@type": "Product",
+                    "name": p['name'],
+                    "description": p['desc'],
+                    "url": f"https://companymaster.gumroad.com/l/{p['slug']}",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": p['price'],
+                        "priceCurrency": "USD"
+                    }
+                }
+            })
+        return json.dumps({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": items
+        }, ensure_ascii=False)
+    
     def serve_products(self):
         """Render product catalog landing page."""
         cards_html = ''
@@ -300,13 +338,26 @@ class SaaSHandler(BaseHTTPRequestHandler):
                 </div>
             </div>'''
         
+        schema_org = self._make_schema_org_json()
+        schema_prods = self._make_schema_products_json()
         html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CompanyMaster — Digital Products</title>
-<meta name="description" content="Printable planners & digital tools to organize your life. Browse our catalog of 28 premium digital planners, trackers, and organizers.">
+<meta name="description" content="Printable planners & digital tools to organize your life. Browse our catalog of {len(PRODUCTS)} premium digital planners, trackers, and organizers.">
+<meta property="og:title" content="CompanyMaster — Digital Products">
+<meta property="og:description" content="Printable planners & digital tools to organize your life. Browse our catalog of {len(PRODUCTS)} premium digital planners, trackers, and organizers.">
+<meta property="og:url" content="https://companymaster-saas-production.up.railway.app/products">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CompanyMaster">
+<script type="application/ld+json">
+{schema_org}
+</script>
+<script type="application/ld+json">
+{schema_prods}
+</script>
 <style>
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.6; }}
@@ -361,12 +412,131 @@ footer a:hover {{ text-decoration: underline; }}
 </html>'''
         self._serve_html(html)
     
+    def serve_homepage(self):
+        """Render homepage with Organization JSON-LD."""
+        schema_org = self._make_schema_org_json()
+        html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CompanyMaster — API & Digital Products</title>
+<meta name="description" content="CompanyMaster SaaS — URL shortener, QR code generator, text tools, and digital product catalog on Gumroad.">
+<meta property="og:title" content="CompanyMaster — API & Digital Products">
+<meta property="og:description" content="CompanyMaster SaaS — URL shortener, QR code generator, text tools, and digital product catalog on Gumroad.">
+<meta property="og:url" content="https://companymaster-saas-production.up.railway.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CompanyMaster">
+<script type="application/ld+json">
+{schema_org}
+</script>
+<style>
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.6; }}
+.container {{ max-width: 800px; margin: 0 auto; padding: 0 20px; }}
+header {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 60px 0 40px; text-align: center; }}
+header h1 {{ font-size: 2.5rem; margin-bottom: 10px; }}
+header p {{ font-size: 1.1rem; opacity: 0.85; }}
+.card {{ background: white; border-radius: 12px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }}
+.card h2 {{ font-size: 1.3rem; margin-bottom: 12px; color: #0f3460; }}
+.card ul {{ list-style: none; }}
+.card li {{ padding: 6px 0; font-size: 0.95rem; }}
+.card li a {{ color: #0f3460; text-decoration: none; font-weight: 500; }}
+.card li a:hover {{ text-decoration: underline; }}
+.endpoints {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
+.endpoint-item {{ background: #f0f4f8; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; }}
+.endpoint-item code {{ background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }}
+.btn {{ display: inline-block; background: #0f3460; color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 8px; }}
+.btn:hover {{ background: #1a4a7a; }}
+footer {{ background: #1a1a2e; color: #999; padding: 30px 0; text-align: center; margin-top: 40px; }}
+footer a {{ color: #8ab4f8; text-decoration: none; }}
+</style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>🏢 CompanyMaster</h1>
+        <p>Digital Products &amp; SaaS Tools</p>
+    </div>
+</header>
+<main class="container">
+    <div class="card">
+        <h2>🚀 API Endpoints</h2>
+        <div class="endpoints">
+            <div class="endpoint-item"><code>GET /health</code> — Health check</div>
+            <div class="endpoint-item"><code>POST /register</code> — Create API key</div>
+            <div class="endpoint-item"><code>GET /shorten</code> — Shorten URL</div>
+            <div class="endpoint-item"><code>GET /qr</code> — QR code generator</div>
+            <div class="endpoint-item"><code>GET /tools/wordcount</code> — Word count</div>
+            <div class="endpoint-item"><code>GET /tools/charactercount</code> — Character count</div>
+            <div class="endpoint-item"><code>GET /tools/md2html</code> — Markdown to HTML</div>
+            <div class="endpoint-item"><code>GET /tools/slugify</code> — URL slug generator</div>
+            <div class="endpoint-item"><code>GET /products</code> — Product catalog ({len(PRODUCTS)} products)</div>
+            <div class="endpoint-item"><code>GET /catalog</code> — Product catalog view</div>
+        </div>
+        <a class="btn" href="/products">Browse Products →</a>
+    </div>
+    <div class="card">
+        <h2>🛍️ Digital Products</h2>
+        <p>Printable planners, trackers, and organizers — available on Gumroad.</p>
+        <p style="margin-top:12px;"><a href="https://companymaster.gumroad.com" target="_blank" rel="noopener" style="color:#0f3460;font-weight:600;">Visit our Gumroad Store →</a></p>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <p>© 2026 CompanyMaster — <a href="/products">Products</a> — <a href="/privacy">Privacy</a></p>
+    </div>
+</footer>
+</body>
+</html>'''
+        self._serve_html(html)
+    
+    def serve_sitemap(self):
+        """Generate XML sitemap."""
+        today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+        static_urls = [
+            '/', '/products', '/catalog', '/shorten', '/qr',
+            '/tools/wordcount', '/tools/charactercount', '/tools/md2html', '/tools/slugify'
+        ]
+        lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+        lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+        for u in static_urls:
+            lines.append(f'  <url><loc>https://companymaster-saas-production.up.railway.app{u}</loc><lastmod>{today}</lastmod></url>')
+        for p in PRODUCTS:
+            lines.append(f'  <url><loc>https://companymaster.gumroad.com/l/{p["slug"]}</loc><lastmod>{today}</lastmod></url>')
+        gumroad_path = Path('/opt/data/state/gumroad.json')
+        if gumroad_path.exists():
+            try:
+                gumroad_data = json.loads(gumroad_path.read_text(encoding='utf-8'))
+                # gumroad.json has aggregate data only; individual products come from PRODUCTS list
+                pass
+            except (json.JSONDecodeError, OSError):
+                pass
+        lines.append('</urlset>')
+        xml = '\n'.join(lines)
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/xml; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(xml.encode('utf-8'))
+    
+    def serve_robots(self):
+        """Generate robots.txt with Sitemap directive."""
+        text = 'User-agent: *\nSitemap: https://companymaster-saas-production.up.railway.app/sitemap.xml\n'
+        self.send_response(200)
+        self.send_header('Content-Type', 'text/plain; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(text.encode('utf-8'))
+    
     def do_GET(self):
         parsed = urlparse(self.path)
         path = parsed.path.rstrip('/')
         
+        # Homepage
+        if path in ('', '/'):
+            return self.serve_homepage()
+        
         # Health check
-        if path in ('', '/') or path == '/health':
+        if path == '/health':
             self._send_json({
                 "service": "CompanyMaster SaaS",
                 "version": "0.1.0",
@@ -374,7 +544,15 @@ footer a:hover {{ text-decoration: underline; }}
                 "endpoints": ["/shorten", "/qr", "/tools/wordcount", "/tools/md2html", "/tools/slugify", "/tools/charactercount", "/products", "/catalog"]
             })
             return
-
+        
+        # Sitemap
+        if path == '/sitemap.xml':
+            return self.serve_sitemap()
+        
+        # Robots.txt
+        if path == '/robots.txt':
+            return self.serve_robots()
+        
         # Privacy Policy
         if path in ('/privacy', '/privacy/companymaster'):
             html = PRIVACY_POLICY_PATH.read_text(encoding='utf-8')
