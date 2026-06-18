@@ -78,6 +78,7 @@ DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 DB_PATH = DATA_DIR / "saas.db"
+VISITS_DB_PATH = DATA_DIR / "visits.db"
 PORT = 8080
 
 # ─── DATABASE ─────────────────────────────────────────────
@@ -139,6 +140,25 @@ def create_user(conn, email=None, plan="free", initial_credits=100):
     )
     conn.commit()
     return api_key
+
+# ─── VISIT TRACKING ───────────────────────────────────────
+def init_visits_db():
+    conn = sqlite3.connect(str(VISITS_DB_PATH))
+    conn.execute("CREATE TABLE IF NOT EXISTS visits (route TEXT PRIMARY KEY, count INTEGER DEFAULT 0)")
+    conn.commit()
+    conn.close()
+    return VISITS_DB_PATH
+
+def track_visit(route):
+    """Increment visit counter for a given route. Non-blocking on errors."""
+    try:
+        conn = sqlite3.connect(str(VISITS_DB_PATH))
+        conn.execute("INSERT OR IGNORE INTO visits (route, count) VALUES (?, 0)", (route,))
+        conn.execute("UPDATE visits SET count = count + 1 WHERE route = ?", (route,))
+        conn.commit()
+        conn.close()
+    except Exception:
+        pass  # Never break the app for visit tracking
 
 # ─── SAAS: URL Shortener ─────────────────────────────────
 class URLShortener:
@@ -527,9 +547,94 @@ footer a {{ color: #8ab4f8; text-decoration: none; }}
         self.end_headers()
         self.wfile.write(text.encode('utf-8'))
     
+    def serve_stats_json(self):
+        """Return visit counts as JSON."""
+        try:
+            conn = sqlite3.connect(str(VISITS_DB_PATH))
+            cur = conn.execute("SELECT route, count FROM visits ORDER BY count DESC")
+            rows = cur.fetchall()
+            conn.close()
+            data = {row[0]: row[1] for row in rows}
+        except Exception:
+            data = {"error": "Stats unavailable"}
+        self._send_json(data)
+    
+    def serve_stats_html(self):
+        """Render visit stats as HTML table."""
+        try:
+            conn = sqlite3.connect(str(VISITS_DB_PATH))
+            cur = conn.execute("SELECT route, count FROM visits ORDER BY count DESC")
+            rows = cur.fetchall()
+            conn.close()
+        except Exception:
+            rows = []
+        
+        html_rows = ""
+        total_visits = 0
+        for route, count in rows:
+            html_rows += f"<tr><td>{route}</td><td>{count}</td></tr>\n"
+            total_visits += count
+        
+        html = f'''<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CompanyMaster — Admin Stats</title>
+<style>
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.6; }}
+.container {{ max-width: 800px; margin: 0 auto; padding: 20px; }}
+h1 {{ color: #0f3460; margin-bottom: 8px; }}
+.summary {{ display: flex; gap: 20px; margin: 20px 0; }}
+.summary-card {{ background: white; border-radius: 10px; padding: 16px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex: 1; text-align: center; }}
+.summary-card .number {{ font-size: 2rem; font-weight: 700; color: #0f3460; }}
+.summary-card .label {{ font-size: 0.85rem; color: #666; }}
+table {{ width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }}
+th {{ background: #0f3460; color: white; padding: 12px 16px; text-align: left; font-size: 0.9rem; }}
+td {{ padding: 10px 16px; border-bottom: 1px solid #eee; }}
+tr:hover td {{ background: #f0f4f8; }}
+tr:last-child td {{ border-bottom: none; }}
+.footer {{ margin-top: 20px; text-align: center; }}
+.footer a {{ color: #0f3460; text-decoration: none; font-weight: 500; }}
+.footer a:hover {{ text-decoration: underline; }}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📊 Admin — Visit Stats</h1>
+<p style="color:#666;">Tracking de visitas por rota</p>
+<div class="summary">
+<div class="summary-card">
+<div class="number">{len(rows)}</div>
+<div class="label">Rotas</div>
+</div>
+<div class="summary-card">
+<div class="number">{total_visits}</div>
+<div class="label">Total de Visitas</div>
+</div>
+</div>
+<table>
+<thead><tr><th>Rota</th><th>Visitas</th></tr></thead>
+<tbody>
+{html_rows}
+</tbody>
+</table>
+<div class="footer">
+<p><a href="/">← Voltar ao início</a> &nbsp;|&nbsp; <a href="/stats">📋 JSON</a></p>
+</div>
+</div>
+</body>
+</html>'''
+        self._serve_html(html)
+    
     def do_GET(self):
         parsed = urlparse(self.path)
         path = parsed.path.rstrip('/')
+        
+        # Track visit for this route
+        route = path if path else '/'
+        track_visit(route)
         
         # Homepage
         if path in ('', '/'):
@@ -641,6 +746,14 @@ footer a {{ color: #8ab4f8; text-decoration: none; }}
                 self._send_json({"error": "Not found"}, 404)
             return
         
+        # Visit stats (JSON)
+        if path == '/stats':
+            return self.serve_stats_json()
+        
+        # Admin visit stats (HTML)
+        if path == '/admin/stats':
+            return self.serve_stats_html()
+        
         self._send_json({"error": "Not found"}, 404)
     
     def do_POST(self):
@@ -654,6 +767,9 @@ footer a {{ color: #8ab4f8; text-decoration: none; }}
         
         parsed = urlparse(self.path)
         path = parsed.path.rstrip('/')
+        
+        # Track visit for this route
+        track_visit(path if path else '/')
         
         # Create API key
         if path == '/register':
@@ -682,6 +798,7 @@ footer a {{ color: #8ab4f8; text-decoration: none; }}
 
 def run_server(port=8080):
     conn = init_db()
+    init_visits_db()
     
     # Criar usuário demo se não existir
     cur = conn.execute("SELECT COUNT(*) FROM users")
