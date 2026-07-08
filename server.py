@@ -433,17 +433,50 @@ footer a:hover {{ text-decoration: underline; }}
         self._serve_html(html)
     
     def serve_homepage(self):
-        """Render homepage with Organization JSON-LD."""
+        """Render homepage with Organization JSON-LD, visitor counter, and Gumroad CTAs."""
         schema_org = self._make_schema_org_json()
+
+        # Get visitor count for the homepage
+        visitor_count = 0
+        try:
+            conn = sqlite3.connect(str(VISITS_DB_PATH))
+            cur = conn.execute("SELECT count FROM visits WHERE route = '/'")
+            row = cur.fetchone()
+            if row:
+                visitor_count = row[0]
+            conn.close()
+        except Exception:
+            pass
+
+        # Featured products (one from each major category)
+        featured_slugs = ['bxssj', 'uzbmvd', 'hfwqoa', 'jptszh', 'vmpnry', 'bfprwg']
+        featured_products = [p for p in PRODUCTS if p['slug'] in featured_slugs]
+
+        featured_cards = ''
+        for p in featured_products:
+            gumroad_url = f"https://companymaster.gumroad.com/l/{p['slug']}"
+            price_str = f"${p['price']:.2f}" if p['price'] > 0 else "Free"
+            featured_cards += f'''
+            <div class="featured-card">
+                <span class="featured-cat">{p['category']}</span>
+                <h3>{p['name']}</h3>
+                <div class="featured-footer">
+                    <span class="featured-price">{price_str}</span>
+                    <a class="small-btn" href="{gumroad_url}" target="_blank" rel="noopener">Buy →</a>
+                </div>
+            </div>'''
+
+        total_products = len(PRODUCTS)
+
         html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CompanyMaster — API & Digital Products</title>
-<meta name="description" content="CompanyMaster SaaS — URL shortener, QR code generator, text tools, and digital product catalog on Gumroad.">
-<meta property="og:title" content="CompanyMaster — API & Digital Products">
-<meta property="og:description" content="CompanyMaster SaaS — URL shortener, QR code generator, text tools, and digital product catalog on Gumroad.">
+<title>CompanyMaster — Digital Products &amp; SaaS Tools</title>
+<meta name="description" content="CompanyMaster: Printable planners, trackers &amp; organizers on Gumroad + free SaaS API tools (URL shortener, QR code generator, text tools).">
+<meta property="og:title" content="CompanyMaster — Digital Products &amp; SaaS Tools">
+<meta property="og:description" content="Printable planners, trackers &amp; organizers on Gumroad + free SaaS API tools (URL shortener, QR code generator, text tools).">
 <meta property="og:url" content="https://companymaster-saas-production.up.railway.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CompanyMaster">
@@ -453,10 +486,41 @@ footer a:hover {{ text-decoration: underline; }}
 <style>
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.6; }}
-.container {{ max-width: 800px; margin: 0 auto; padding: 0 20px; }}
+.container {{ max-width: 900px; margin: 0 auto; padding: 0 20px; }}
+
+/* Header */
 header {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 60px 0 40px; text-align: center; }}
-header h1 {{ font-size: 2.5rem; margin-bottom: 10px; }}
-header p {{ font-size: 1.1rem; opacity: 0.85; }}
+header h1 {{ font-size: 2.5rem; margin-bottom: 8px; }}
+header p {{ font-size: 1.15rem; opacity: 0.9; max-width: 650px; margin: 0 auto; }}
+header .badge {{ display: inline-block; background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; margin-top: 12px; }}
+
+/* Section titles */
+.section-title {{ font-size: 1.5rem; margin: 36px 0 6px; color: #1a1a2e; }}
+.section-subtitle {{ font-size: 0.95rem; color: #666; margin-bottom: 20px; }}
+
+/* Store Hero Card */
+.store-hero {{ background: linear-gradient(135deg, #0f3460 0%, #1a4a7a 100%); color: white; border-radius: 16px; padding: 36px; margin: 24px 0 32px; text-align: center; box-shadow: 0 4px 16px rgba(15,52,96,0.25); }}
+.store-hero h2 {{ font-size: 1.7rem; margin-bottom: 10px; }}
+.store-hero p {{ font-size: 1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 20px; }}
+.store-hero .btn-group {{ display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }}
+.store-hero .btn-primary {{ display: inline-block; background: #ff6b35; color: white; padding: 12px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: background 0.2s, transform 0.1s; }}
+.store-hero .btn-primary:hover {{ background: #e85d2c; transform: translateY(-1px); }}
+.store-hero .btn-secondary {{ display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.2s; border: 1px solid rgba(255,255,255,0.3); }}
+.store-hero .btn-secondary:hover {{ background: rgba(255,255,255,0.3); }}
+
+/* Featured Products Grid */
+.featured-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0 0 8px; }}
+.featured-card {{ background: white; border-radius: 12px; padding: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; border: 1px solid #e8e8ec; }}
+.featured-card:hover {{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }}
+.featured-cat {{ display: inline-block; background: #eef0f7; color: #0f3460; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 20px; margin-bottom: 10px; align-self: flex-start; }}
+.featured-card h3 {{ font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; line-height: 1.3; color: #1a1a2e; flex-grow: 1; }}
+.featured-footer {{ display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 12px; }}
+.featured-price {{ font-weight: 700; color: #0f3460; font-size: 1rem; }}
+.small-btn {{ background: #0f3460; color: white; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: background 0.2s; }}
+.small-btn {{ background: #0f3460; }}
+.small-btn:hover {{ background: #1a4a7a; }}
+
+/* API Card */
 .card {{ background: white; border-radius: 12px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }}
 .card h2 {{ font-size: 1.3rem; margin-bottom: 12px; color: #0f3460; }}
 .card ul {{ list-style: none; }}
@@ -468,18 +532,81 @@ header p {{ font-size: 1.1rem; opacity: 0.85; }}
 .endpoint-item code {{ background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }}
 .btn {{ display: inline-block; background: #0f3460; color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 8px; }}
 .btn:hover {{ background: #1a4a7a; }}
+
+/* Visitor Counter */
+.visitor-count {{ text-align: center; margin: 10px 0; font-size: 0.85rem; color: #888; }}
+
+/* Footer */
 footer {{ background: #1a1a2e; color: #999; padding: 30px 0; text-align: center; margin-top: 40px; }}
 footer a {{ color: #8ab4f8; text-decoration: none; }}
+footer a:hover {{ text-decoration: underline; }}
+
+@media (max-width: 720px) {{
+    header h1 {{ font-size: 1.8rem; }}
+    .featured-grid {{ grid-template-columns: 1fr; }}
+    .endpoints {{ grid-template-columns: 1fr; }}
+    .store-hero {{ padding: 24px 16px; }}
+    .store-hero .btn-group {{ flex-direction: column; align-items: center; }}
+}}
 </style>
 </head>
 <body>
 <header>
     <div class="container">
         <h1>🏢 CompanyMaster</h1>
-        <p>Digital Products &amp; SaaS Tools</p>
+        <p>Printable planners, digital organizers &amp; free SaaS API tools</p>
+        <span class="badge">{total_products} products on Gumroad</span>
     </div>
 </header>
 <main class="container">
+    <!-- Gumroad Store Hero -->
+    <div class="store-hero">
+        <h2>🛍️ Digital Products Store</h2>
+        <p>Premium printable planners, trackers, and organizers to supercharge your productivity, health, finances, and daily life — all available on Gumroad.</p>
+        <div class="btn-group">
+            <a class="btn-primary" href="https://companymaster.gumroad.com" target="_blank" rel="noopener">Visit Gumroad Store →</a>
+            <a class="btn-secondary" href="/products">Browse All {total_products} Products</a>
+        </div>
+    </div>
+
+    <!-- Featured Products -->
+    <h2 class="section-title">⭐ Featured Products</h2>
+    <p class="section-subtitle">Top picks from our catalog — planners, trackers, bundles and more</p>
+    <div class="featured-grid">
+        {featured_cards}
+    </div>
+
+    <!-- What We Offer -->
+    <div class="card">
+        <h2>📋 What We Offer</h2>
+        <p style="margin-bottom:14px;">CompanyMaster has two sides — <strong>digital products</strong> for personal organization and <strong>SaaS API tools</strong> for developers:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div style="background:#f0f4f8;padding:16px;border-radius:10px;">
+                <h3 style="font-size:1rem;color:#0f3460;margin-bottom:6px;">🛍️ Gumroad Store</h3>
+                <ul style="list-style:none;font-size:0.9rem;">
+                    <li>📅 Planners (weekly, monthly, yearly)</li>
+                    <li>💰 Budget &amp; finance trackers</li>
+                    <li>🏃 Health &amp; fitness planners</li>
+                    <li>👶 Baby &amp; parenting logs</li>
+                    <li>✅ Habit &amp; goal trackers</li>
+                    <li>📦 Value bundles (save up to 60%)</li>
+                </ul>
+            </div>
+            <div style="background:#f0f4f8;padding:16px;border-radius:10px;">
+                <h3 style="font-size:1rem;color:#0f3460;margin-bottom:6px;">🚀 SaaS API Tools</h3>
+                <ul style="list-style:none;font-size:0.9rem;">
+                    <li>🔗 URL shortener</li>
+                    <li>📱 QR code generator</li>
+                    <li>📝 Text tools (word count, markdown)</li>
+                    <li>🔑 Free API key system</li>
+                    <li>📊 Usage tracking included</li>
+                    <li>⚡ Always-free tier available</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Endpoints -->
     <div class="card">
         <h2>🚀 API Endpoints</h2>
         <div class="endpoints">
@@ -491,20 +618,21 @@ footer a {{ color: #8ab4f8; text-decoration: none; }}
             <div class="endpoint-item"><code>GET /tools/charactercount</code> — Character count</div>
             <div class="endpoint-item"><code>GET /tools/md2html</code> — Markdown to HTML</div>
             <div class="endpoint-item"><code>GET /tools/slugify</code> — URL slug generator</div>
-            <div class="endpoint-item"><code>GET /products</code> — Product catalog ({len(PRODUCTS)} products)</div>
+            <div class="endpoint-item"><code>GET /products</code> — Product catalog ({total_products} products)</div>
             <div class="endpoint-item"><code>GET /catalog</code> — Product catalog view</div>
         </div>
         <a class="btn" href="/products">Browse Products →</a>
     </div>
-    <div class="card">
-        <h2>🛍️ Digital Products</h2>
-        <p>Printable planners, trackers, and organizers — available on Gumroad.</p>
-        <p style="margin-top:12px;"><a href="https://companymaster.gumroad.com" target="_blank" rel="noopener" style="color:#0f3460;font-weight:600;">Visit our Gumroad Store →</a></p>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-count">
+        👀 {visitor_count}+ visitors so far
     </div>
 </main>
 <footer>
     <div class="container">
-        <p>© 2026 CompanyMaster — <a href="/products">Products</a> — <a href="/privacy">Privacy</a></p>
+        <p>© 2026 CompanyMaster — <a href="https://companymaster.gumroad.com" target="_blank" rel="noopener">Gumroad Store</a> — <a href="/products">All Products</a> — <a href="/privacy">Privacy</a></p>
+        <p style="margin-top:8px;font-size:0.8rem;">All products are digital downloads delivered via Gumroad</p>
     </div>
 </footer>
 </body>
