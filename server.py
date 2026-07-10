@@ -72,6 +72,257 @@ PRODUCTS = [
     {"slug": "emywbs", "name": "Travel Planner & Itinerary Organizer Printable — Trip Budget, Packing List, Journal and Souvenir Log", "desc": "Plan unforgettable trips. Itinerary pages, travel budget tracker, packing checklists, daily travel journal, photo log, and souvenir tracker.", "price": 4.99, "category": "Tracker"},
 ]
 
+# ─── BLOG ARTICLES ────────────────────────────────────────
+BLOG_ARTICLES = [
+    {
+        "slug": "best-digital-planners-2026",
+        "title": "Best Digital Planners for 2026 — Ultimate Guide to Printable Planners",
+        "meta_desc": "Discover the best digital planners for 2026. Compare weekly, monthly, and yearly printable planners to supercharge your productivity this year.",
+        "h1": "Best Digital Planners for 2026",
+        "content": """
+<p>If you're looking to get organized in 2026, you've come to the right place. Digital planners — printable PDFs you can use on your tablet, iPad, or print at home — have exploded in popularity, and for good reason. They combine the flexibility of paper planning with the convenience of digital storage.</p>
+
+<p>Whether you're a busy professional, a student juggling multiple deadlines, or a parent managing a household, the right planner can transform your productivity. In this guide, we'll walk through the best digital planners available for 2026 and help you choose the perfect one for your needs.</p>
+
+<h2>Why Choose Digital Planners Over Paper?</h2>
+<p>Digital planners offer several advantages over traditional paper planners. You can carry hundreds of pages on a single device, easily duplicate pages, and never run out of space. Many digital planners are undated, meaning you can start using them any time of year without wasting pages. Plus, they're eco-friendly — no trees required!</p>
+
+<p>Printable planners also allow you to customize your planning system. Want a weekly spread with an hourly schedule? Done. Need a monthly budget tracker alongside your meal planner? Easy. The flexibility is unmatched.</p>
+
+<h2>Top Digital Planners for 2026</h2>
+
+<h3>1. Ultimate Weekly Planner — Hourly Schedule & Priority Tasks</h3>
+<p>The <strong>Ultimate Weekly Planner</strong> is our top recommendation for anyone who wants to master their week. It features an hourly time-blocking schedule from 6 AM to 10 PM, priority task lists, a built-in habit tracker, and a weekly reflection section. It's undated, so you can start any week of the year.</p>
+<p>Perfect for professionals who need to balance multiple projects, students managing coursework, or anyone who wants to make the most of their time.</p>
+<p><a href="https://companymaster.gumroad.com/l/weekly-planner" target="_blank" rel="noopener">Get the Ultimate Weekly Planner →</a></p>
+
+<h3>2. Productivity Pro Bundle — 7 Planners in One</h3>
+<p>If you want a complete productivity system, the <strong>Productivity Pro Bundle</strong> is the way to go. It includes seven powerful planners: weekly, daily, habit tracker, project manager, goal planner, time log, and priority matrix. You save over 60% compared to buying each separately.</p>
+<p>This bundle is ideal for power users who want every tool they might need in one download. From daily time blocking to long-term project planning, it's got you covered.</p>
+<p><a href="https://companymaster.gumroad.com/l/productivity-bundle" target="_blank" rel="noopener">Get the Productivity Pro Bundle →</a></p>
+
+<h3>3. Goal Setting & Action Planner — 90-Day Sprint System</h3>
+<p>The <strong>Goal Setting Workbook</strong> helps you turn ambitious goals into actionable plans using a proven 90-day sprint system. Define quarterly OKRs, break them into weekly milestones, track progress, and review achievements. It's perfect for New Year's resolutions, career goals, or personal development.</p>
+<p><a href="https://companymaster.gumroad.com/l/goal-setting" target="_blank" rel="noopener">Get the Goal Setting Workbook →</a></p>
+
+<h2>How to Choose the Right Digital Planner</h2>
+<p>Consider your planning style. Do you prefer hourly scheduling or a simpler task list? Do you need budget tracking alongside your calendar? Start with one planner that addresses your biggest pain point, then expand your system as you get comfortable.</p>
+
+<p>For beginners, we recommend starting with the <strong>Ultimate Weekly Planner</strong> and adding the <strong>Habit Tracker</strong> once you've built a consistent planning routine.</p>
+
+<h2>Final Thoughts</h2>
+<p>2026 is the year to take control of your time. Digital planners make it easier than ever to stay organized, track your habits, and achieve your goals. Browse our full collection on <a href="https://companymaster.gumroad.com" target="_blank" rel="noopener">Gumroad</a> and find the perfect planner for your needs.</p>
+""",
+        "products": [
+            {"slug": "weekly-planner", "name": "Ultimate Weekly Planner"},
+            {"slug": "productivity-bundle", "name": "Productivity Pro Bundle"},
+            {"slug": "goal-setting", "name": "Goal Setting Workbook"}
+        ]
+    },
+    {
+        "slug": "how-to-organize-work-week",
+        "title": "How to Organize Your Work Week — A Step-by-Step Guide to Weekly Planning",
+        "meta_desc": "Learn how to organize your work week effectively with proven weekly planning strategies, time blocking techniques, and printable planners.",
+        "h1": "How to Organize Your Work Week",
+        "content": """
+<p>Do you ever reach Friday and wonder where the week went? You're not alone. Most professionals struggle with weekly organization, bouncing between meetings, emails, and urgent tasks without a clear plan. The good news is that organizing your work week is a skill anyone can learn — and it starts with a solid weekly planning routine.</p>
+
+<p>In this guide, we'll walk through a proven step-by-step system to organize your work week, reduce stress, and get more done.</p>
+
+<h2>Why Weekly Planning Matters</h2>
+<p>Weekly planning is the bridge between your big-picture goals and daily execution. Without a weekly plan, you're reacting to whatever comes your way. With one, you're proactively working on what matters most. Studies show that people who plan their week in advance are significantly more productive and report lower stress levels.</p>
+
+<h2>Step 1: Review and Reflect (Sunday Evening or Monday Morning)</h2>
+<p>Start your week by reviewing the previous week. What went well? What didn't get done? What priorities shifted? This 10-minute reflection helps you learn from the past and set intentional goals for the week ahead.</p>
+<p>Use the <strong>Ultimate Weekly Planner</strong> to document your reflections and plan the coming days. Its built-in weekly reflection section makes this step effortless.</p>
+
+<h2>Step 2: Identify Your Top 3 Priorities</h2>
+<p>Before you schedule anything, identify the three most important outcomes for the week. These are the tasks that, if completed, will make the week a success. Everything else is secondary. Write them at the top of your weekly spread so they stay front and center.</p>
+
+<h2>Step 3: Time Block Your Schedule</h2>
+<p>Time blocking is the most effective way to protect your focus time. Divide your day into blocks dedicated to specific types of work: deep work, meetings, admin tasks, and breaks. Be realistic about how long things take and leave buffer time between blocks.</p>
+<p>The <strong>Ultimate Weekly Planner</strong> includes an hourly schedule from 6 AM to 10 PM, perfect for time blocking your entire week.</p>
+
+<h2>Step 4: Plan Your Meetings and Notes</h2>
+<p>Meetings can be the biggest time-wasters if not managed well. For every meeting, set a clear agenda and take structured notes. After each meeting, document action items and decisions.</p>
+<p>The <strong>Meeting Notes Template</strong> is designed specifically for this. It includes sections for agenda, discussion points, decisions, action items, and follow-up dates. Use it for every meeting and watch your meeting productivity soar.</p>
+<p><a href="https://companymaster.gumroad.com/l/meeting-notes" target="_blank" rel="noopener">Get the Meeting Notes Template →</a></p>
+
+<h2>Step 5: Track Your Habits</h2>
+<p>Your weekly routine is built on habits. Whether it's daily exercise, reading, or focused work sessions, tracking your habits helps you stay consistent. Add 1-3 habits to track each week and review your progress on Friday.</p>
+<p>The <strong>Habit Tracker</strong> is perfect for this — track up to 12 habits daily with monthly review pages to see your progress over time.</p>
+<p><a href="https://companymaster.gumroad.com/l/habit-tracker" target="_blank" rel="noopener">Get the Habit Tracker →</a></p>
+
+<h2>Step 6: End Each Day with a Review</h2>
+<p>Spend 5 minutes at the end of each day reviewing what you accomplished, updating your task list, and setting tomorrow's priorities. This small habit prevents morning scramble and keeps you on track all week.</p>
+
+<h2>Final Thoughts</h2>
+<p>Organizing your work week doesn't have to be complicated. Start with these six steps, use the right tools, and you'll be amazed at how much more you can accomplish with less stress. Grab the <a href="https://companymaster.gumroad.com/l/weekly-planner" target="_blank" rel="noopener">Ultimate Weekly Planner</a> to put this system into action today.</p>
+""",
+        "products": [
+            {"slug": "weekly-planner", "name": "Ultimate Weekly Planner"},
+            {"slug": "meeting-notes", "name": "Meeting Notes Template"},
+            {"slug": "habit-tracker", "name": "Habit Tracker"}
+        ]
+    },
+    {
+        "slug": "free-printable-habit-trackers",
+        "title": "Free Printable Habit Trackers — Build Better Habits with These Proven Templates",
+        "meta_desc": "Discover free printable habit tracker templates and learn how to build lasting habits. Includes links to premium habit tracking planners for serious habit builders.",
+        "h1": "Free Printable Habit Trackers",
+        "content": """
+<p>Building good habits is the foundation of personal growth. Whether you want to exercise more, read daily, drink more water, or practice mindfulness, a habit tracker is one of the most effective tools to help you stay consistent. In this article, we'll explore how to use habit trackers effectively and share some of the best printable options available.</p>
+
+<h2>Why Use a Habit Tracker?</h2>
+<p>Habit tracking works because it harnesses several psychological principles. First, it creates a visual record of your progress — seeing a chain of checkmarks motivates you to keep going. Second, it reduces the mental effort of remembering whether you did a habit today. Third, it provides accountability to yourself.</p>
+<p>Research shows that people who track their habits are significantly more likely to stick with them long-term. The simple act of checking a box creates a small dopamine reward that reinforces the behavior.</p>
+
+<h2>Getting Started with Free Habit Trackers</h2>
+<p>You can start tracking habits today with a simple notebook or a free printable template. Here's what a basic habit tracker should include:</p>
+<ul>
+<li>A list of habits you want to track (start with 3-5)</li>
+<li>A grid with days of the month or week</li>
+<li>Space to mark completion (checkmark, X, or color fill)</li>
+<li>A monthly review section to analyze progress</li>
+</ul>
+
+<h2>Upgrade to the Ultimate Habit Tracker</h2>
+<p>While free templates are great for getting started, the <strong>Habit Tracker</strong> from CompanyMaster takes your habit building to the next level. It includes:</p>
+<ul>
+<li>Track up to 12 habits daily for a full year</li>
+<li>Monthly review pages with progress analysis</li>
+<li>Habit stacking planner to build routines</li>
+<li>Quarterly habit audits to refine your system</li>
+<li>Beautiful, undated design — print as many copies as you need</li>
+</ul>
+<p><a href="https://companymaster.gumroad.com/l/habit-tracker" target="_blank" rel="noopener">Get the Ultimate Habit Tracker →</a></p>
+
+<h2>Pair Goals with Habits</h2>
+<p>Habits are the building blocks of goals. If you want to achieve something significant, break it down into daily habits and track them. The <strong>Goal Setting Workbook</strong> pairs perfectly with the Habit Tracker — use it to define your quarterly OKRs and track the daily habits that will get you there.</p>
+<p><a href="https://companymaster.gumroad.com/l/goal-setting" target="_blank" rel="noopener">Get the Goal Setting Workbook →</a></p>
+
+<h2>Popular Habit Categories to Track</h2>
+<ul>
+<li><strong>Health:</strong> Exercise, water intake, sleep, meditation, steps</li>
+<li><strong>Productivity:</strong> Deep work hours, inbox zero, daily planning, reading</li>
+<li><strong>Personal Growth:</strong> Journaling, learning, gratitude, skill practice</li>
+<li><strong>Finance:</strong> Daily budget tracking, no-spend days, savings deposits</li>
+</ul>
+
+<h2>Final Thoughts</h2>
+<p>Start small. Pick one or two habits and track them for 30 days. Once they become automatic, add more. The <a href="https://companymaster.gumroad.com/l/habit-tracker" target="_blank" rel="noopener">Habit Tracker</a> makes it easy to scale from a few habits to a complete personal growth system.</p>
+""",
+        "products": [
+            {"slug": "habit-tracker", "name": "Habit Tracker"},
+            {"slug": "goal-setting", "name": "Goal Setting Workbook"},
+            {"slug": "productivity-bundle", "name": "Productivity Pro Bundle"}
+        ]
+    },
+    {
+        "slug": "goal-setting-framework",
+        "title": "The Ultimate Goal Setting Framework — Turn Your Dreams into Achievable Plans",
+        "meta_desc": "Learn the proven goal setting framework used by high achievers. Includes OKRs, 90-day sprints, and weekly action plans with printable goal planners.",
+        "h1": "The Ultimate Goal Setting Framework",
+        "content": """
+<p>Setting goals is easy. Achieving them is hard. The difference between dreamers and achievers isn't talent or luck — it's having a systematic framework for turning aspirations into actionable plans. In this article, we'll break down a proven goal-setting framework that works for career goals, fitness targets, financial objectives, and personal development.</p>
+
+<h2>Why Most Goal Setting Fails</h2>
+<p>Studies show that over 80% of New Year's resolutions fail by February. The main reasons? Goals are too vague, too ambitious, or lack a tracking system. Without a framework, even the most motivated people struggle to maintain momentum.</p>
+
+<h2>The CompanyMaster Goal Setting Framework</h2>
+<p>This framework combines OKRs (Objectives and Key Results) with 90-day sprints and weekly action plans. It's designed to bridge the gap between your big vision and daily actions.</p>
+
+<h3>Step 1: Define Your Quarterly OKRs</h3>
+<p>Start by setting 1-3 objectives for the quarter. Each objective should have 2-3 measurable key results. For example:</p>
+<ul>
+<li><strong>Objective:</strong> Grow my freelance business</li>
+<li><strong>Key Results:</strong> Land 3 new clients, increase monthly revenue by 30%, build a referral system</li>
+</ul>
+<p>The <strong>Goal Setting Workbook</strong> includes dedicated pages for defining and tracking your OKRs each quarter.</p>
+<p><a href="https://companymaster.gumroad.com/l/goal-setting" target="_blank" rel="noopener">Get the Goal Setting Workbook →</a></p>
+
+<h3>Step 2: Break Goals into 90-Day Sprints</h3>
+<p>A 90-day sprint is the perfect time frame for making meaningful progress without losing focus. Each sprint should have a clear theme and specific deliverables. Break your quarterly OKRs into sprint-sized chunks and focus on one sprint at a time.</p>
+
+<h3>Step 3: Create Weekly Action Plans</h3>
+<p>Each week, identify 3-5 actions that will move your sprint forward. These should be specific, time-bound tasks that you can schedule into your calendar. At the end of each week, review what worked and adjust your plan for the next week.</p>
+
+<h3>Step 4: Track Daily Habits That Support Your Goals</h3>
+<p>Goals are achieved through daily habits. If your goal is to write a book, your daily habit might be writing 500 words. If your goal is to get fit, your daily habit might be a 30-minute workout. Use the <strong>Habit Tracker</strong> to stay consistent with these daily actions.</p>
+<p><a href="https://companymaster.gumroad.com/l/habit-tracker" target="_blank" rel="noopener">Get the Habit Tracker →</a></p>
+
+<h3>Step 5: Review and Adjust Monthly</h3>
+<p>Schedule a monthly review session to assess your progress. Ask yourself: What's working? What's not? Do I need to adjust my key results? This reflection prevents you from spending months going in the wrong direction.</p>
+
+<h2>The Complete System: Productivity Pro Bundle</h2>
+<p>For the most comprehensive goal-setting system, the <strong>Productivity Pro Bundle</strong> includes the Goal Setting Workbook, Weekly Planner, Habit Tracker, Project Manager, and more — everything you need to turn your goals into reality.</p>
+<p><a href="https://companymaster.gumroad.com/l/productivity-bundle" target="_blank" rel="noopener">Get the Productivity Pro Bundle →</a></p>
+
+<h2>Final Thoughts</h2>
+<p>Goal setting is a skill. Like any skill, it improves with practice and the right tools. Start with one goal, apply this framework, and use the <a href="https://companymaster.gumroad.com/l/goal-setting" target="_blank" rel="noopener">Goal Setting Workbook</a> to track your progress. You'll be amazed at what you can achieve in just 90 days.</p>
+""",
+        "products": [
+            {"slug": "goal-setting", "name": "Goal Setting Workbook"},
+            {"slug": "productivity-bundle", "name": "Productivity Pro Bundle"},
+            {"slug": "habit-tracker", "name": "Habit Tracker"}
+        ]
+    },
+    {
+        "slug": "effective-meeting-notes",
+        "title": "How to Take Effective Meeting Notes — Templates and Techniques for Better Meetings",
+        "meta_desc": "Master the art of taking effective meeting notes. Learn proven techniques, templates, and tools to capture action items and decisions from every meeting.",
+        "h1": "How to Take Effective Meeting Notes",
+        "content": """
+<p>Meetings are unavoidable in professional life, but poorly managed meetings waste billions of dollars in productivity every year. One of the simplest ways to improve meeting productivity is to take better notes. Effective meeting notes ensure that decisions are documented, action items are assigned, and nothing falls through the cracks.</p>
+
+<p>In this guide, we'll share proven techniques for taking meeting notes and introduce templates that make the process effortless.</p>
+
+<h2>Why Meeting Notes Matter</h2>
+<p>Good meeting notes serve several critical purposes. They create a record of decisions made, provide accountability for action items, help absent team members catch up, and serve as a reference for future discussions. Without notes, meetings become forgettable conversations rather than productive working sessions.</p>
+
+<h2>The PAR Method for Meeting Notes</h2>
+<p>One of the most effective frameworks for meeting notes is the <strong>PAR Method</strong>: Purpose, Agenda, Results.</p>
+
+<h3>Purpose</h3>
+<p>Before the meeting, write down the purpose. Why is this meeting happening? What outcome is needed? Share this with attendees in advance so everyone comes prepared.</p>
+
+<h3>Agenda</h3>
+<p>List the topics to be discussed with time allocations. A good agenda prevents meetings from going off track and ensures all important topics are covered.</p>
+
+<h3>Results</h3>
+<p>After the meeting, document: decisions made, action items (with owners and deadlines), and open questions that need follow-up. This is the most important part — it's what makes meetings productive.</p>
+
+<p>The <strong>Meeting Notes Template</strong> is built around the PAR Method and includes dedicated sections for each part.</p>
+<p><a href="https://companymaster.gumroad.com/l/meeting-notes" target="_blank" rel="noopener">Get the Meeting Notes Template →</a></p>
+
+<h2>Tips for Better Meeting Notes</h2>
+<ul>
+<li><strong>Prepare in advance:</strong> Review the agenda before the meeting and set up your note-taking template</li>
+<li><strong>Focus on decisions, not verbatim:</strong> Don't try to capture everything said — focus on decisions, action items, and key points</li>
+<li><strong>Assign action items clearly:</strong> Every action item should have an owner and a deadline</li>
+<li><strong>Distribute notes promptly:</strong> Send notes within 24 hours while the discussion is still fresh</li>
+<li><strong>Use a consistent format:</strong> A template ensures you never miss important elements</li>
+</ul>
+
+<h2>Integrate Meeting Notes with Your Weekly Planning</h2>
+<p>Meeting notes don't exist in isolation. Action items from meetings should feed directly into your weekly plan. The <strong>Ultimate Weekly Planner</strong> has dedicated space for weekly priorities and tasks, making it easy to transfer action items from your meeting notes into your planning system.</p>
+<p><a href="https://companymaster.gumroad.com/l/weekly-planner" target="_blank" rel="noopener">Get the Ultimate Weekly Planner →</a></p>
+
+<h2>Create a Meeting Notes Habit</h2>
+<p>Like any productivity practice, taking good meeting notes becomes easier with consistency. Use the <strong>Habit Tracker</strong> to build a habit of preparing before meetings and distributing notes afterward. Within a few weeks, it will become second nature.</p>
+<p><a href="https://companymaster.gumroad.com/l/habit-tracker" target="_blank" rel="noopener">Get the Habit Tracker →</a></p>
+
+<h2>Final Thoughts</h2>
+<p>Effective meeting notes transform meetings from time-wasters into productive working sessions. Start using the PAR method today, grab the <a href="https://companymaster.gumroad.com/l/meeting-notes" target="_blank" rel="noopener">Meeting Notes Template</a>, and watch your meeting productivity improve dramatically.</p>
+""",
+        "products": [
+            {"slug": "meeting-notes", "name": "Meeting Notes Template"},
+            {"slug": "weekly-planner", "name": "Ultimate Weekly Planner"},
+            {"slug": "habit-tracker", "name": "Habit Tracker"}
+        ]
+    }
+]
+
 # ─── CONFIG ───────────────────────────────────────────────
 BASE_DIR = Path("/opt/data/projetos/saas")
 DATA_DIR = BASE_DIR / "data"
@@ -432,6 +683,249 @@ footer a:hover {{ text-decoration: underline; }}
 </html>'''
         self._serve_html(html)
     
+    def serve_blog_article(self, slug):
+        """Render a single blog article page with SEO metadata and Gumroad product links."""
+        # Find the article
+        article = None
+        for a in BLOG_ARTICLES:
+            if a['slug'] == slug:
+                article = a
+                break
+        if not article:
+            self._send_json({"error": "Blog article not found"}, 404)
+            return
+
+        # Build product CTA cards
+        product_cards = ''
+        for p in article['products']:
+            gumroad_url = f"https://companymaster.gumroad.com/l/{p['slug']}"
+            product_cards += f'''
+            <div class="blog-cta-card">
+                <h4>{p['name']}</h4>
+                <a class="blog-cta-btn" href="{gumroad_url}" target="_blank" rel="noopener">View on Gumroad →</a>
+            </div>'''
+
+        # Build blog link list
+        blog_links = ''
+        for a in BLOG_ARTICLES:
+            active = ' class="blog-link-active"' if a['slug'] == slug else ''
+            blog_links += f'<li><a href="/blog/{a["slug"]}"{active}>{a["h1"]}</a></li>'
+
+        today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+
+        # Build JSON-LD separately to avoid f-string nesting issues
+        article_schema = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": article['title'],
+            "description": article['meta_desc'],
+            "url": f"https://companymaster-saas-production.up.railway.app/blog/{article['slug']}",
+            "datePublished": today,
+            "author": {
+                "@type": "Organization",
+                "name": "CompanyMaster"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "CompanyMaster",
+                "url": "https://companymaster.gumroad.com"
+            }
+        }, ensure_ascii=False)
+
+        html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{article['title']} — CompanyMaster Blog</title>
+<meta name="description" content="{article['meta_desc']}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://companymaster-saas-production.up.railway.app/blog/{article['slug']}">
+<meta property="og:title" content="{article['title']}">
+<meta property="og:description" content="{article['meta_desc']}">
+<meta property="og:url" content="https://companymaster-saas-production.up.railway.app/blog/{article['slug']}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CompanyMaster">
+<meta property="article:published_time" content="{today}">
+<script type="application/ld+json">
+{article_schema}
+</script>
+<style>
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }}
+.container {{ max-width: 900px; margin: 0 auto; padding: 0 20px; }}
+
+/* Header */
+.blog-header {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 40px 0 30px; }}
+.blog-header h1 {{ font-size: 2rem; margin-bottom: 6px; }}
+.blog-header .blog-meta {{ font-size: 0.85rem; opacity: 0.7; }}
+.blog-header .blog-back {{ display: inline-block; color: #8ab4f8; text-decoration: none; font-size: 0.9rem; margin-bottom: 12px; }}
+.blog-header .blog-back:hover {{ text-decoration: underline; }}
+
+/* Content */
+.blog-content {{ background: white; border-radius: 0 0 12px 12px; padding: 40px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }}
+.blog-content h2 {{ font-size: 1.4rem; color: #0f3460; margin: 32px 0 12px; }}
+.blog-content h3 {{ font-size: 1.15rem; color: #1a4a7a; margin: 24px 0 10px; }}
+.blog-content p {{ margin-bottom: 16px; font-size: 1rem; color: #333; }}
+.blog-content ul {{ margin: 10px 0 16px 24px; }}
+.blog-content li {{ margin-bottom: 6px; font-size: 0.98rem; color: #444; }}
+.blog-content a {{ color: #0f3460; font-weight: 600; text-decoration: none; border-bottom: 2px solid #d0d8e8; }}
+.blog-content a:hover {{ color: #1a4a7a; border-bottom-color: #0f3460; }}
+.blog-content strong {{ color: #1a1a2e; }}
+
+/* Product CTAs */
+.blog-ctas {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 30px 0 10px; }}
+.blog-cta-card {{ background: #f0f4f8; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; text-align: center; }}
+.blog-cta-card h4 {{ font-size: 0.95rem; color: #0f3460; margin-bottom: 10px; line-height: 1.3; }}
+.blog-cta-btn {{ display: inline-block; background: #0f3460; color: white; padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }}
+.blog-cta-btn:hover {{ background: #1a4a7a; }}
+
+/* Sidebar / Related */
+.blog-sidebar {{ background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }}
+.blog-sidebar h3 {{ font-size: 1.1rem; color: #0f3460; margin-bottom: 12px; }}
+.blog-sidebar ul {{ list-style: none; }}
+.blog-sidebar li {{ margin-bottom: 8px; }}
+.blog-sidebar a {{ color: #0f3460; text-decoration: none; font-weight: 500; font-size: 0.95rem; }}
+.blog-sidebar a:hover {{ text-decoration: underline; }}
+.blog-sidebar .blog-link-active {{ font-weight: 700; color: #1a1a2e; }}
+
+/* Footer */
+footer {{ background: #1a1a2e; color: #999; padding: 30px 0; text-align: center; margin-top: 20px; }}
+footer a {{ color: #8ab4f8; text-decoration: none; }}
+footer a:hover {{ text-decoration: underline; }}
+
+@media (max-width: 720px) {{
+    .blog-header h1 {{ font-size: 1.5rem; }}
+    .blog-content {{ padding: 24px; }}
+    .blog-ctas {{ grid-template-columns: 1fr; }}
+}}
+</style>
+</head>
+<body>
+<header class="blog-header">
+    <div class="container">
+        <a class="blog-back" href="/blog">← Blog Home</a>
+        <h1>{article['h1']}</h1>
+        <p class="blog-meta">Published {today} · CompanyMaster Blog</p>
+    </div>
+</header>
+<main class="container">
+    <div class="blog-content">
+        {article['content']}
+        <div class="blog-ctas">
+            {product_cards}
+        </div>
+    </div>
+    <div class="blog-sidebar">
+        <h3>📖 More Articles</h3>
+        <ul>
+            {blog_links}
+        </ul>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <p>© 2026 CompanyMaster — <a href="https://companymaster.gumroad.com" target="_blank" rel="noopener">Gumroad Store</a> — <a href="/">Home</a> — <a href="/blog">Blog</a></p>
+    </div>
+</footer>
+</body>
+</html>'''
+        self._serve_html(html)
+
+    def serve_blog_index(self):
+        """Render blog index page listing all articles."""
+        schema_org = self._make_schema_org_json()
+
+        cards = ''
+        for a in BLOG_ARTICLES:
+            # Truncate meta desc for card
+            excerpt = a['meta_desc'][:120] + '...' if len(a['meta_desc']) > 120 else a['meta_desc']
+            cards += f'''
+            <div class="blog-card">
+                <h2 class="blog-card-title"><a href="/blog/{a['slug']}">{a['h1']}</a></h2>
+                <p class="blog-card-desc">{excerpt}</p>
+                <a class="blog-card-link" href="/blog/{a['slug']}">Read More →</a>
+            </div>'''
+
+        html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CompanyMaster Blog — Productivity Tips, Planners &amp; Printable Templates</title>
+<meta name="description" content="Read the latest articles about productivity, digital planning, habit tracking, goal setting, and organization tips from CompanyMaster.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://companymaster-saas-production.up.railway.app/blog">
+<meta property="og:title" content="CompanyMaster Blog — Productivity Tips &amp; Templates">
+<meta property="og:description" content="Read the latest articles about productivity, digital planning, habit tracking, goal setting, and organization tips from CompanyMaster.">
+<meta property="og:url" content="https://companymaster-saas-production.up.railway.app/blog">
+<meta property="og:type" content="blog">
+<meta property="og:site_name" content="CompanyMaster">
+<script type="application/ld+json">
+{schema_org}
+</script>
+<style>
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.6; }}
+.container {{ max-width: 900px; margin: 0 auto; padding: 0 20px; }}
+
+header {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 50px 0 35px; text-align: center; }}
+header h1 {{ font-size: 2.2rem; margin-bottom: 8px; }}
+header p {{ font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; }}
+header .badge {{ display: inline-block; background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; margin-top: 10px; }}
+
+.blog-grid {{ display: grid; gap: 18px; padding: 30px 0; }}
+.blog-card {{ background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #e8e8ec; }}
+.blog-card:hover {{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }}
+.blog-card-title {{ font-size: 1.2rem; margin-bottom: 8px; }}
+.blog-card-title a {{ color: #0f3460; text-decoration: none; }}
+.blog-card-title a:hover {{ text-decoration: underline; }}
+.blog-card-desc {{ font-size: 0.95rem; color: #555; margin-bottom: 14px; }}
+.blog-card-link {{ color: #0f3460; font-weight: 600; font-size: 0.9rem; text-decoration: none; }}
+.blog-card-link:hover {{ text-decoration: underline; }}
+
+.store-cta {{ background: linear-gradient(135deg, #0f3460 0%, #1a4a7a 100%); color: white; border-radius: 16px; padding: 28px; margin: 0 0 30px; text-align: center; }}
+.store-cta h2 {{ font-size: 1.4rem; margin-bottom: 8px; }}
+.store-cta p {{ font-size: 0.95rem; opacity: 0.9; margin-bottom: 16px; }}
+.store-cta .btn {{ display: inline-block; background: #ff6b35; color: white; padding: 10px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: background 0.2s; }}
+.store-cta .btn:hover {{ background: #e85d2c; }}
+
+footer {{ background: #1a1a2e; color: #999; padding: 30px 0; text-align: center; margin-top: 20px; }}
+footer a {{ color: #8ab4f8; text-decoration: none; }}
+footer a:hover {{ text-decoration: underline; }}
+
+@media (max-width: 720px) {{
+    header h1 {{ font-size: 1.6rem; }}
+}}
+</style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>📝 CompanyMaster Blog</h1>
+        <p>Productivity tips, planning guides, and organization strategies</p>
+        <span class="badge">{len(BLOG_ARTICLES)} articles</span>
+    </div>
+</header>
+<main class="container">
+    <div class="store-cta">
+        <h2>🛍️ Browse Our Digital Products</h2>
+        <p>Printable planners, habit trackers, and organization tools — all on Gumroad</p>
+        <a class="btn" href="https://companymaster.gumroad.com" target="_blank" rel="noopener">Visit Gumroad Store →</a>
+    </div>
+    <div class="blog-grid">
+        {cards}
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <p>© 2026 CompanyMaster — <a href="https://companymaster.gumroad.com" target="_blank" rel="noopener">Gumroad Store</a> — <a href="/">Home</a> — <a href="/products">All Products</a></p>
+    </div>
+</footer>
+</body>
+</html>'''
+        self._serve_html(html)
+
     def serve_homepage(self):
         """Render homepage with Organization JSON-LD, visitor counter, and Gumroad CTAs."""
         schema_org = self._make_schema_org_json()
@@ -467,6 +961,11 @@ footer a:hover {{ text-decoration: underline; }}
             </div>'''
 
         total_products = len(PRODUCTS)
+
+        # Blog links for homepage
+        blog_links = ''
+        for a in BLOG_ARTICLES:
+            blog_links += f'<li><a href="/blog/{a["slug"]}">{a["h1"]}</a></li>'
 
         html = f'''<!DOCTYPE html>
 <html lang="en">
@@ -576,6 +1075,16 @@ footer a:hover {{ text-decoration: underline; }}
         {featured_cards}
     </div>
 
+    <!-- Blog Section -->
+    <div class="card" style="margin-top: 28px;">
+        <h2>📝 Latest from the Blog</h2>
+        <p style="margin-bottom:14px;">Productivity tips, planning guides, and organization strategies to help you get more done.</p>
+        <ul>
+            {blog_links}
+        </ul>
+        <a class="btn" href="/blog">Read All Articles →</a>
+    </div>
+
     <!-- What We Offer -->
     <div class="card">
         <h2>📋 What We Offer</h2>
@@ -620,6 +1129,7 @@ footer a:hover {{ text-decoration: underline; }}
             <div class="endpoint-item"><code>GET /tools/slugify</code> — URL slug generator</div>
             <div class="endpoint-item"><code>GET /products</code> — Product catalog ({total_products} products)</div>
             <div class="endpoint-item"><code>GET /catalog</code> — Product catalog view</div>
+            <div class="endpoint-item"><code>GET /blog</code> — Blog index ({len(BLOG_ARTICLES)} articles)</div>
         </div>
         <a class="btn" href="/products">Browse Products →</a>
     </div>
@@ -631,7 +1141,7 @@ footer a:hover {{ text-decoration: underline; }}
 </main>
 <footer>
     <div class="container">
-        <p>© 2026 CompanyMaster — <a href="https://companymaster.gumroad.com" target="_blank" rel="noopener">Gumroad Store</a> — <a href="/products">All Products</a> — <a href="/privacy">Privacy</a></p>
+        <p>© 2026 CompanyMaster — <a href="https://companymaster.gumroad.com" target="_blank" rel="noopener">Gumroad Store</a> — <a href="/products">All Products</a> — <a href="/blog">Blog</a> — <a href="/privacy">Privacy</a></p>
         <p style="margin-top:8px;font-size:0.8rem;">All products are digital downloads delivered via Gumroad</p>
     </div>
 </footer>
@@ -644,12 +1154,15 @@ footer a:hover {{ text-decoration: underline; }}
         today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
         static_urls = [
             '/', '/products', '/catalog', '/shorten', '/qr',
-            '/tools/wordcount', '/tools/charactercount', '/tools/md2html', '/tools/slugify'
+            '/tools/wordcount', '/tools/charactercount', '/tools/md2html', '/tools/slugify',
+            '/blog'
         ]
         lines = ['<?xml version="1.0" encoding="UTF-8"?>']
         lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
         for u in static_urls:
             lines.append(f'  <url><loc>https://companymaster-saas-production.up.railway.app{u}</loc><lastmod>{today}</lastmod></url>')
+        for a in BLOG_ARTICLES:
+            lines.append(f'  <url><loc>https://companymaster-saas-production.up.railway.app/blog/{a["slug"]}</loc><lastmod>{today}</lastmod></url>')
         for p in PRODUCTS:
             lines.append(f'  <url><loc>https://companymaster.gumroad.com/l/{p["slug"]}</loc><lastmod>{today}</lastmod></url>')
         gumroad_path = Path('/opt/data/state/gumroad.json')
@@ -882,6 +1395,15 @@ tr:last-child td {{ border-bottom: none; }}
         if path == '/admin/stats':
             return self.serve_stats_html()
         
+        # Blog
+        if path == '/blog':
+            return self.serve_blog_index()
+        
+        if path.startswith('/blog/'):
+            slug = path[6:]  # Remove '/blog/'
+            if slug:
+                return self.serve_blog_article(slug)
+        
         self._send_json({"error": "Not found"}, 404)
     
     def do_POST(self):
@@ -950,6 +1472,8 @@ def run_server(port=8080):
     print(f"   GET  /tools/charactercount — Character count (chars, words, lines, paragraphs)")
     print(f"   GET  /tools/slugify     — URL slug generator")
     print(f"   GET  /products          — Product catalog ({len(PRODUCTS)} products)")
+    print(f"   GET  /blog              — Blog index ({len(BLOG_ARTICLES)} articles)")
+    print(f"   GET  /blog/<slug>       — Blog article")
     print(f"\n💰 Monetization-ready: API key system, usage tracking, subscription plans")
     
     try:
